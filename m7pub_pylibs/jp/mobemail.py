@@ -33,6 +33,7 @@
 Utilities for JP mobile 
 """
 
+from __future__ import print_function
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate: 2011-01-15 11:22:39 +0900 (Sat, 15 Jan 2011) $"
 __version__     = "$LastChangedRevision: 31 $"
@@ -137,7 +138,7 @@ def get_mobile_carrier(domain):
 
 if __name__ == '__main__':
 
-    print get_mobile_email_domains()
-    print get_mobile_carrier("docomo.ne.jp")
-    print get_mobile_carrier("i.softbank.jp")
-    print get_mobile_carrier("yahoo.co.jp")
+    print(get_mobile_email_domains())
+    print(get_mobile_carrier("docomo.ne.jp"))
+    print(get_mobile_carrier("i.softbank.jp"))
+    print(get_mobile_carrier("yahoo.co.jp"))

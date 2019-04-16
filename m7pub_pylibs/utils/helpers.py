@@ -33,6 +33,9 @@
 Common helper functions
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
+import six
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"
@@ -60,7 +63,7 @@ def import_object(qualified_name):
         return mod
 
     except (Exception) as e:
-        print "Exception occurred 02: import_object(): %s" % (e)
+        print("Exception occurred 02: import_object(): %s" % (e))
         return None
 
 
@@ -158,7 +161,7 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
     else:
         prio = syslog.LOG_NOTICE
 
-    if type(message) == unicode:
+    if type(message) == six.text_type:
         message = message.encode('utf8')
 
     syslog.openlog(ident, 0, fac)
@@ -297,6 +300,6 @@ def calculate_time(base_time, diff_seconds, reverse=False):
 if __name__ == '__main__':
     #log_syslog("test", "test test")
     #import_object('test')
-    print uniqify_list(list('123123454324332ABCAABCabcaabcrt'))
-    print calculate_time(datetime.datetime.now(), -60)
-    print calculate_time(datetime.datetime.now(), -60, True)
+    print(uniqify_list(list('123123454324332ABCAABCabcaabcrt')))
+    print(calculate_time(datetime.datetime.now(), -60))
+    print(calculate_time(datetime.datetime.now(), -60, True))

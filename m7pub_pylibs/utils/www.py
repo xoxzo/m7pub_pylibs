@@ -33,11 +33,12 @@
 A module for utilities on the web
 """
 
+from __future__ import absolute_import
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"
 
-import urllib2, urllib
+import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse, six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 
 def get_http_basic_auth_opener(url, username, passwd, realm=None):
     """
@@ -55,8 +56,8 @@ def get_http_basic_auth_opener(url, username, passwd, realm=None):
 
     """
 
-    passwd_manager = urllib2.HTTPPasswordMgrWithDefaultRealm()
+    passwd_manager = six.moves.urllib.request.HTTPPasswordMgrWithDefaultRealm()
     passwd_manager.add_password(realm, url, username, passwd)
-    auth_handler = urllib2.HTTPBasicAuthHandler(passwd_manager)
-    return urllib2.build_opener(auth_handler)
+    auth_handler = six.moves.urllib.request.HTTPBasicAuthHandler(passwd_manager)
+    return six.moves.urllib.request.build_opener(auth_handler)
 

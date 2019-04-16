@@ -33,6 +33,7 @@
 Commonly used utilities during development
 """
 
+from __future__ import absolute_import
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"

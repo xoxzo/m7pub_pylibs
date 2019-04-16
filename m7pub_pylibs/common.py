@@ -33,6 +33,7 @@
 Commonly used code which does not belong to any of the other packages
 """
 
+from __future__ import absolute_import
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"
@@ -56,7 +57,7 @@ class BaseClass(object):
     """
 
     def read_only_property(self):
-        raise (AttributeError), "Read-only attribute"
+        raise (AttributeError)("Read-only attribute")
 
     def _prop_set_classname(self, value):
         self.read_only_property()

@@ -33,6 +33,8 @@
 Utility methods when working with files
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"
@@ -67,9 +69,9 @@ def generate_random_filename(randlen=2, suffix=None):
 
 if __name__ == '__main__':
 
-    print generate_random_filename()
-    print generate_random_filename("jpg")
-    print generate_random_filename(7,"jpg")
-    print generate_random_filename(10,"jpg")
-    print generate_random_filename(5,"jpg")
+    print(generate_random_filename())
+    print(generate_random_filename("jpg"))
+    print(generate_random_filename(7,"jpg"))
+    print(generate_random_filename(10,"jpg"))
+    print(generate_random_filename(5,"jpg"))
 

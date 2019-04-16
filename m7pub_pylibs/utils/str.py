@@ -33,6 +33,8 @@
 Commonly used utility when working with strings
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate$"
 __version__     = "$LastChangedRevision$"
@@ -61,9 +63,9 @@ def is_alnum(a_string, okchars=None):
 
 if __name__ == '__main__':
 
-    print is_alnum("bauAhfg345%")
-    print is_alnum("bauAhfg345%!@", "!@%")
-    print is_alnum("bauAhfg345%!@", "!%")
-    print is_alnum("bauAhfg345")
-    print is_alnum("漢字abc")
+    print(is_alnum("bauAhfg345%"))
+    print(is_alnum("bauAhfg345%!@", "!@%"))
+    print(is_alnum("bauAhfg345%!@", "!%"))
+    print(is_alnum("bauAhfg345"))
+    print(is_alnum("漢字abc"))
 
