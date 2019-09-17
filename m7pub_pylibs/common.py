@@ -34,9 +34,6 @@ Commonly used code which does not belong to any of the other packages
 """
 
 from __future__ import absolute_import
-__author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
-__date__        = "$LastChangedDate$"
-__version__     = "$LastChangedRevision$"
 
 import re
 

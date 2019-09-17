@@ -35,9 +35,6 @@ Commonly used utility when working with strings
 
 from __future__ import absolute_import
 from __future__ import print_function
-__author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
-__date__        = "$LastChangedDate$"
-__version__     = "$LastChangedRevision$"
 
 import string
 

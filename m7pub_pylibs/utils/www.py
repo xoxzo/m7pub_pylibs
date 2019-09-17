@@ -34,9 +34,6 @@ A module for utilities on the web
 """
 
 from __future__ import absolute_import
-__author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
-__date__        = "$LastChangedDate$"
-__version__     = "$LastChangedRevision$"
 
 import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse, six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 
