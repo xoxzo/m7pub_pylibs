@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup (
     name                = 'm7pub_pylibs',
-    version             = '1.1.4',
+    version             = '1.1.5',
     author              = 'Iqbal Abdullah',
     author_email        = 'iqbal@marimore.co.jp',
     # List out where your code lives, with __init__.py
