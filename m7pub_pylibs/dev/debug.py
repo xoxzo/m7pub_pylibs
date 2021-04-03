@@ -33,9 +33,7 @@
 Commonly used utilities during development
 """
 
-__author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
-__date__        = "$LastChangedDate$"
-__version__     = "$LastChangedRevision$"
+from __future__ import absolute_import
 
 import datetime, tempfile
 
