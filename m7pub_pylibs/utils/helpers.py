@@ -158,7 +158,7 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
     else:
         prio = syslog.LOG_NOTICE
 
-    if type(message) == six.text_type:
+    if type(message) is not str:
         message = message.encode('utf8')
 
     syslog.openlog(ident, 0, fac)
@@ -167,7 +167,7 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
         syslog.syslog(prio, message)
     except Exception as e:
         syslog.syslog(prio, fallback_message + str(e))
-        
+
 def log_syslogn(message, ident=None, priority="LOG_NOTICE", facility="LOG_USER",
                 fallback_message='ERROR: '):
     """
