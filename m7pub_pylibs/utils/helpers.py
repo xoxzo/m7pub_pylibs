@@ -158,9 +158,6 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
     else:
         prio = syslog.LOG_NOTICE
 
-    if type(message) is not str:
-        message = message.encode('utf8')
-
     syslog.openlog(ident, 0, fac)
 
     try:
