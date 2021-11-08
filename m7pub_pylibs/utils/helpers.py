@@ -228,8 +228,9 @@ def log_syslog0(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL0
                 fallback_message='ERROR: '):
     log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
 
-def log_syslog1(message):
-    logger.info(message)
+def log_syslog1(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL1",
+                fallback_message='ERROR: '):
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog2(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL2",
                 fallback_message='ERROR: '):
