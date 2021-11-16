@@ -40,6 +40,7 @@ import six
 import sys, datetime
 import inspect
 
+
 def import_object(qualified_name):
     """
     Returns the module/function/class which is specified in *qualified_name* as
@@ -96,6 +97,12 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
 
     By default it will be LOG_USER
     """
+    import logging
+
+    logger = logging.getLogger(ident)
+    logger.setLevel(logging.INFO)
+
+    return logger.info(message)
 
     try:
         import syslog
@@ -223,7 +230,7 @@ def log_syslog0(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL0
 
 def log_syslog1(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL1",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog2(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL2",
                 fallback_message='ERROR: '):
