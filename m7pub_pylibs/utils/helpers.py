@@ -6,39 +6,40 @@
 #       Iqbal Abdullah <iqbal@marimore.co.jp>
 # All rights reserved.
 #
-# Redistribution and use in source and binary forms, with or without modification, 
+# Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
 #
-#   *   Redistributions of source code must retain the above copyright notice, 
+#   *   Redistributions of source code must retain the above copyright notice,
 #       this list of conditions and the following disclaimer.
-#   *   Redistributions in binary form must reproduce the above copyright notice, 
-#       this list of conditions and the following disclaimer in the documentation 
+#   *   Redistributions in binary form must reproduce the above copyright notice,
+#       this list of conditions and the following disclaimer in the documentation
 #       and/or other materials provided with the distribution.
-#   *   Neither the name of the MARIMORE Inc nor the names of its contributors 
-#       may be used to endorse or promote products derived from this software 
+#   *   Neither the name of the MARIMORE Inc nor the names of its contributors
+#       may be used to endorse or promote products derived from this software
 #       without specific prior written permission.
 #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
-# THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE 
-# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
-# ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+# THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+# ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
 Common helper functions
 """
 
-__author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
-__date__        = "$LastChangedDate$"
-__version__     = "$LastChangedRevision$"
+from __future__ import absolute_import
+from __future__ import print_function
+import six
 
 import sys, datetime
 import inspect
+
 
 def import_object(qualified_name):
     """
@@ -60,7 +61,7 @@ def import_object(qualified_name):
         return mod
 
     except (Exception) as e:
-        print "Exception occurred 02: import_object(): %s" % (e)
+        print("Exception occurred 02: import_object(): %s" % (e))
         return None
 
 
@@ -96,6 +97,12 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
 
     By default it will be LOG_USER
     """
+    import logging
+
+    logger = logging.getLogger(ident)
+    logger.setLevel(logging.INFO)
+
+    return logger.info(message)
 
     try:
         import syslog
@@ -158,7 +165,7 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
     else:
         prio = syslog.LOG_NOTICE
 
-    if type(message) == unicode:
+    if type(message) == six.text_type:
         message = message.encode('utf8')
 
     syslog.openlog(ident, 0, fac)
@@ -215,41 +222,41 @@ def log_syslogn(message, ident=None, priority="LOG_NOTICE", facility="LOG_USER",
     messages = [line.strip() for line in message.split()]
     message1 = " ".join(messages)
 
-    log_syslog(ident, message1, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslog(ident, message1, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog0(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL0",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog1(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL1",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog2(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL2",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog3(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL3",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog4(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL4",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog5(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL5",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog6(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL6",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
 def log_syslog7(message, ident=None, priority="LOG_NOTICE", facility="LOG_LOCAL7",
                 fallback_message='ERROR: '):
-    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message) 
+    log_syslogn(message, ident, priority, facility=facility, fallback_message=fallback_message)
 
-def uniqify_list(seq, idfun=None): 
+def uniqify_list(seq, idfun=None):
     """
     Uniqify the list *seq* while preserving order.
 
@@ -279,7 +286,7 @@ def uniqify_list(seq, idfun=None):
 
     return result
 
-def calculate_time(base_time, diff_seconds, reverse=False): 
+def calculate_time(base_time, diff_seconds, reverse=False):
     """
     Calculates a new time if you add the amount of seconds in *diff_seconds* to
     the datetime object *base_time*. Set *reverse* to True if you want to do
@@ -297,6 +304,6 @@ def calculate_time(base_time, diff_seconds, reverse=False):
 if __name__ == '__main__':
     #log_syslog("test", "test test")
     #import_object('test')
-    print uniqify_list(list('123123454324332ABCAABCabcaabcrt'))
-    print calculate_time(datetime.datetime.now(), -60)
-    print calculate_time(datetime.datetime.now(), -60, True)
+    print(uniqify_list(list('123123454324332ABCAABCabcaabcrt')))
+    print(calculate_time(datetime.datetime.now(), -60))
+    print(calculate_time(datetime.datetime.now(), -60, True))

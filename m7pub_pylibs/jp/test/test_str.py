@@ -5,6 +5,7 @@
 Tests for the jp.str module
 """
 
+from __future__ import absolute_import
 __author__      = "Iqbal Abdullah <iqbal@marimore.co.jp>"
 __date__        = "$LastChangedDate: 2011-01-12 19:45:45 +0900 (Wed, 12 Jan 2011) $"
 __version__     = "$LastChangedRevision: 151 $"
