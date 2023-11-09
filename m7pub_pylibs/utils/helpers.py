@@ -35,7 +35,6 @@ Common helper functions
 
 from __future__ import absolute_import
 from __future__ import print_function
-import six
 
 import sys, datetime
 import inspect
@@ -97,13 +96,6 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
 
     By default it will be LOG_USER
     """
-    import logging
-
-    logger = logging.getLogger(ident)
-    logger.setLevel(logging.INFO)
-
-    return logger.info(message)
-
     try:
         import syslog
     except:
@@ -164,9 +156,6 @@ def log_syslog(ident, message, priority="LOG_NOTICE", facility="LOG_USER",
         prio = syslog.LOG_DEBUG
     else:
         prio = syslog.LOG_NOTICE
-
-    if type(message) == six.text_type:
-        message = message.encode('utf8')
 
     syslog.openlog(ident, 0, fac)
 
