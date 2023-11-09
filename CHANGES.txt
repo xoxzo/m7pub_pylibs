@@ -1,3 +1,7 @@
+m7pubpylibs-release-1.4
+=========================
+* Fixed the version
+
 m7pubpylibs-release-1.2
 =========================
 * removed buggy code
